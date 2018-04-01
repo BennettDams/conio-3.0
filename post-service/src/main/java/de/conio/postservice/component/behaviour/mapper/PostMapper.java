@@ -9,7 +9,6 @@ import de.conio.core.structure.Post;
 import de.conio.core.structure.PostComment;
 import de.conio.core.structure.Series;
 import de.conio.core.structure.Tutorial;
-import de.conio.core.structure.User;
 import de.conio.postservice.component.structure.BookEntity;
 import de.conio.postservice.component.structure.MovieEntity;
 import de.conio.postservice.component.structure.PostCommentEntity;

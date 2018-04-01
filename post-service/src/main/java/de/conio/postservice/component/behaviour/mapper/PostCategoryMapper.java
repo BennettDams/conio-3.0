@@ -14,11 +14,11 @@ public class PostCategoryMapper {
 		PostCategory postCategory = new PostCategory();
 		postCategory.setName(entity.getName());
 		
-		Set<Post> posts = new HashSet<>();
+		/*Set<Post> posts = new HashSet<>();
 		for (PostEntity postEntity : entity.getPosts()) {
 			posts.add(PostMapper.convert2Post(postEntity));
 		}
-		postCategory.setPosts(posts);
+		postCategory.setPosts(posts);*/
 		
 		postCategory.setLastModified(entity.getLastModified());
 		postCategory.setCreateTime(entity.getCreateTime());
@@ -29,11 +29,11 @@ public class PostCategoryMapper {
 		PostCategoryEntity postCategoryEntity = new PostCategoryEntity();
 		postCategoryEntity.setName(postCategory.getName());
 		
-		Set<PostEntity> posts = new HashSet<>();
+		/*Set<PostEntity> posts = new HashSet<>();
 		for (Post post : postCategory.getPosts()) {
 			posts.add(PostMapper.convert2PostEntity(post));
 		}
-		postCategoryEntity.setPosts(posts);
+		postCategoryEntity.setPosts(posts);*/
 		
 		postCategoryEntity.setLastModified(postCategory.getLastModified());
 		postCategoryEntity.setCreateTime(postCategory.getCreateTime());

@@ -7,13 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import de.conio.core.structure.Tutorial;
-import de.conio.postservice.component.behaviour.mapper.TutorialMapper;
+import de.conio.postservice.component.behaviour.mapper.PostMapper;
 import de.conio.postservice.component.behaviour.repository.PostTutorialRepository;
 import de.conio.postservice.component.structure.TutorialEntity;
 
 @Service
 public class PostTutorialService extends CrudService<TutorialEntity, Tutorial> {
-	 
+
 	@Autowired
 	PostTutorialRepository tutorialRepository;
 
@@ -21,16 +21,15 @@ public class PostTutorialService extends CrudService<TutorialEntity, Tutorial> {
 	protected PostTutorialRepository getRepository() {
 		return tutorialRepository;
 	}
-	
 
 	@Override
 	public void save(Tutorial object) {
-		getRepository().save(TutorialMapper.convert2TutorialEntity(object));
+		getRepository().save((TutorialEntity) PostMapper.convert2PostEntity(object));
 	}
 
 	@Override
 	public Tutorial read(long id) {
-		return TutorialMapper.convert2Tutorial(getRepository().findById(id).get());
+		return (Tutorial) PostMapper.convert2Post(getRepository().findById(id).get());
 	}
 
 	@Override
@@ -38,7 +37,7 @@ public class PostTutorialService extends CrudService<TutorialEntity, Tutorial> {
 		Iterable<TutorialEntity> entities = getRepository().findAll();
 		List<Tutorial> objects = new ArrayList();
 		for (TutorialEntity t : entities) {
-			objects.add(TutorialMapper.convert2Tutorial(t));
+			objects.add((Tutorial) PostMapper.convert2Post((t)));
 		}
 
 		return objects;

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import de.conio.core.structure.Book;
 import de.conio.postservice.component.behaviour.mapper.BookMapper;
+import de.conio.postservice.component.behaviour.mapper.PostMapper;
 import de.conio.postservice.component.behaviour.repository.PostBookRepository;
 import de.conio.postservice.component.structure.BookEntity;
 
@@ -24,12 +25,12 @@ public class PostBookService extends CrudService<BookEntity, Book> {
 
 	@Override
 	public void save(Book object) {
-		getRepository().save(BookMapper.convert2BookEntity(object));
+		getRepository().save((BookEntity) PostMapper.convert2PostEntity(object));
 	}
 
 	@Override
 	public Book read(long id) {
-		return BookMapper.convert2Book(getRepository().findById(id).get());
+		return (Book) PostMapper.convert2Post(getRepository().findById(id).get());
 	}
 
 	@Override
@@ -37,7 +38,7 @@ public class PostBookService extends CrudService<BookEntity, Book> {
 		Iterable<BookEntity> entities = getRepository().findAll();
 		List<Book> objects = new ArrayList();
 		for (BookEntity t : entities) {
-			objects.add(BookMapper.convert2Book(t));
+			objects.add((Book) PostMapper.convert2Post((t)));
 		}
 
 		return objects;

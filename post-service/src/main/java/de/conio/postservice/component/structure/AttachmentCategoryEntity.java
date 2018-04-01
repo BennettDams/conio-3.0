@@ -1,4 +1,4 @@
-package de.conio.postservice.component.behaviour.mapper;
+package de.conio.postservice.component.structure;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
