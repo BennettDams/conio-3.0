@@ -20,9 +20,9 @@ public class User extends Base {
 	
 	private Date lastLogin;
 
-	private Set<Post> posts = new HashSet();
+	private Set<Post> posts = new HashSet<Post>();
 	
-	private Set<Role> roles = new HashSet();
+	private Set<Role> roles = new HashSet<Role>();
 
 	public User() {
 
