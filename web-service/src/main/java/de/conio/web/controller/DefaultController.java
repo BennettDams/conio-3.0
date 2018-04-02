@@ -8,7 +8,7 @@ public class DefaultController {
 
 	@GetMapping("/")
 	public String index() {
-		return "/home";
+		return "home";
 	}
 
 	@GetMapping("/home")
