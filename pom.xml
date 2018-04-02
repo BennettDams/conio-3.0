@@ -15,10 +15,11 @@
 
 	<modules>
 		<module>conio-core</module>
-		<module>jpa-connector</module>
+<!-- 		<module>jpa-connector</module> -->
 		<module>discovery-server</module>
 		<module>gateway-service</module>
 		<module>post-service</module>
 		<module>user-service</module>
+		<module>web-service</module>
 	</modules>
 </project>

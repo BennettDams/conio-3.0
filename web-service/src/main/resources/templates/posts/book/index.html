@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>ESTU</title>
+<div th:replace="fragments/header :: header-css" />
+</head>
+<body>
+
+	<div th:replace="fragments/header :: header" />
+
+	<!-- Page Header -->
+	<header class="masthead"
+		style="background-image: url('media/img/wall.jpeg')">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-md-10 mx-auto">
+					<div class="page-heading">
+						<h1>Book</h1>
+						<span class="subheading">Clean clever clean clever</span> <br />
+						<a type="submit" class="btn btn-primary" th:href="@{book/new}"
+							th:text="|New post|"></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+
+
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 col-md-10 mx-auto">
+				<div th:each="post : ${posts}" class="post-preview">
+					<a th:href="@{'book/' + ${post.id}}">
+						<h2 class="post-title" th:text="${post.title}"></h2>
+						<h3 th:if="${#strings.length(post.body) &lt; 100}"
+							class="post-subtitle" th:text="${post.body}"></h3>
+						<h3 th:if="${#strings.length(post.body) &gt; 100}"
+							class="post-subtitle"
+							th:text="${#strings.substring(post.body,0,100) + ' ...'}"></h3>
+					</a>
+					<p class="post-meta">
+						Categories: <a href="#" th:text="${post.category.name}"></a>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div th:replace="fragments/footer :: footer" />
+</body>
+<script th:src="@{/js/posts/index.js}"></script>
+</html>

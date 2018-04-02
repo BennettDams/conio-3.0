@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>ESTU</title>
+
+<div th:replace="fragments/header :: header-css" />
+
+</head>
+<body>
+
+	<div th:replace="fragments/header :: header" />
+
+	<header class="masthead"
+		style="background-image: url('/media/img/wall.jpeg')">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-md-10 mx-auto">
+					<div class="page-heading">
+						<h1 th:text="|Styleguide|"></h1>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<div class="container">
+
+		<h4>Example project</h4>
+		<a th:href="@{https://github.com/mintster/nixmash-blog}">Naming
+			convention</a>
+
+		<h4>Database</h4>
+		<ul>
+			<li><a
+				th:href="@{https://www.toadworld.com/platforms/mysql/w/wiki/6103.naming-conventions}">Naming
+					convention</a></li>
+			<li><a
+				th:href="@{https://code.tutsplus.com/tutorials/understanding-and-working-with-relationships-between-data-in-wordpress--cms-20632}">Schema
+					example (by Wordpress)</a></li>
+
+			<li><a
+				th:href="@{https://www.google.de/amp/s/vladmihalcea.com/2017/03/29/the-best-way-to-map-a-onetomany-association-with-jpa-and-hibernate/amp/}">
+					Hibernate @ManyToOne</a></li>
+
+			<li><a
+				th:href="@{https://blog.lukaspradel.com/user-role-permission-security-rbac-in-spring-security-4/}">
+					Spring Security Tables</a></li>
+
+		</ul>
+
+		<h4>Thymeleaf</h4>
+		<ul>
+			<li><a
+				th:href="@{http://nixmash.com/post/object-child-lists-in-thymeleaf-forms-and-spring-mvc}">Object
+					with lists</a></li>
+		</ul>
+
+		<h4>Code styleguide</h4>
+		<ul>
+			<li><a
+				th:href="@{https://google.github.io/styleguide/javaguide.html}">Java</a></li>
+			<li><a
+				th:href="@{https://google.github.io/styleguide/jsguide.html}">JavaScript</a></li>
+			<li><a
+				th:href="@{https://google.github.io/styleguide/htmlcssguide.html}">HTML
+					/ CSS</a></li>
+			<li><a
+				th:href="@{https://google.github.io/styleguide/Rguide.xml}">R
+					Programming</a></li>
+		</ul>
+
+		<h4>Authentication</h4>
+		<ul>
+			<li><a
+				th:href="@{http://www.thymeleaf.org/doc/articles/springsecurity.html}">Show
+					content based on role</a></li>
+		</ul>
+
+		<h4>Dates in Thymeleaf</h4>
+		<ul>
+			<li><a th:href="@{http://www.baeldung.com/dates-in-thymeleaf}">Use
+					Date in Thymeleaf-templating</a></li>
+			<li><a
+				th:href="@{https://stackoverflow.com/questions/16360009/error-parsing-thymeleaf-template-with-1-0}">If
+					conditions</a></li>
+		</ul>
+
+	</div>
+
+	<div th:replace="fragments/footer :: footer" />
+</body>
+</html>

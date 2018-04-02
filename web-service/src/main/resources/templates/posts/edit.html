@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>ESTU</title>
+
+<div th:replace="fragments/header :: header-css" />
+
+</head>
+<body>
+
+	<div th:replace="fragments/header :: header" />
+
+	<div class="container">
+
+		<header class="masthead"
+			style="background-image: url('/media/img/wall.jpeg')">
+			<div class="overlay"></div>
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-8 col-md-10 mx-auto">
+						<div class="page-heading">
+							<h1 th:text="|Edit Post|"></h1>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<form class="form-horizontal text-center" th:method="PUT"
+			th:object="${post}" th:action="@{'/posts/' + ${post.id}}">
+			<div class="form-group">
+				<input class="form-control" placeholder="Title" type="text"
+					th:field="*{title}"></input>
+			</div>
+			<div class="form-group">
+				<input class="form-control" placeholder="Body" type="text"
+					th:field="*{body}"></input>
+			</div>
+			<div class="form-group">
+				<input class="form-control" placeholder="Image URL" type="text"
+					th:field="*{imageUrl}"></input>
+			</div>
+			<div th:each="category, stat : *{categories}"
+				class="col-md-3 col-sm-6">
+				<div class="form-group">
+					<input class="form-control" placeholder="Body" type="text"
+						th:field="*{categories[__${stat.index}__].name}"></input>
+				</div>
+			</div>
+			<div class="form-group">
+				<button type="submit" class="btn btn-primary btn-block">Update</button>
+			</div>
+		</form>
+		<a th:href="@{/posts}">Go back</a>
+	</div>
+
+
+	<div th:replace="fragments/footer :: footer" />
+
+</body>
+</html>

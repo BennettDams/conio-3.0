@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>ESTU</title>
+
+<div th:replace="fragments/header :: header-css" />
+
+</head>
+<body>
+
+	<div th:replace="fragments/header :: header" />
+
+	<header class="masthead"
+		style="background-image: url('/media/img/wall.jpeg')">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-md-10 mx-auto">
+					<div class="page-heading">
+						<h1 th:text="|New Comment|"></h1>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<div class="container">
+
+		<form class="form-horizontal text-center" method="POST"
+			th:action="@{'/posts/' + ${postId} + '/comments'}"
+			th:object="${postComment}">
+			<div class="form-group">
+				<textarea class="form-control" placeholder="..." type="text"
+					th:field="*{body}" rows="4"></textarea>
+			</div>
+			<input type="hidden" th:value="${parentId}" th:name="parentId"
+				th:id="parentId"></input>
+			<div class="form-group">
+				<button type="submit" class="btn btn-primary btn-block">Submit</button>
+			</div>
+		</form>
+		<a th:href="@{'/posts/' + ${postId}}">Go back</a>
+	</div>
+
+	<div th:replace="fragments/footer :: footer" />
+</body>
+</html>

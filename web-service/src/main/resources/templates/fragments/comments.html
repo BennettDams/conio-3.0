@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+</head>
+
+<body>
+	<th:block th:fragment="commentList">
+
+		<div class="comment border ml-4" th:each="comment : ${comments}">
+
+			<div class="col-12">
+				<div class="comment-meta">
+					<a class="avatar xs-3"
+						th:href="@{|/users/${comment.user.username}|}"> </a>
+					<!--  -->
+					<a class="comment-username"
+						th:href="@{|/user/${comment.user.username}|}"
+						th:text="${comment.user.username}"> </a>
+				</div>
+			</div>
+
+			<div class="col-12">
+				<div class="comment-content">
+					<p th:text="${comment.body}"></p>
+					<!-- 	-->
+				</div>
+			</div>
+
+			<div class="col-12">
+
+				<div class="comment-actions">
+					<!-- REPLY -->
+					<a
+						th:href="@{'/posts/' + ${post.id} + '/comments/new?parentId=' + ${comment.id}}"
+						class="text-right small">Reply</a>
+					<!-- RATE -->
+					<a
+						th:href="@{'/posts/' + ${post.id} + '/comments/new?parentId=' + ${comment.id}}"
+						class="text-right small">Rate</a>
+				</div>
+			</div>
+
+			<div class="col-12">
+				<!-- DATES -->
+				<div class="comment-date">
+					<!-- 	-->
+					<span
+						th:text="${#dates.format(comment.createTime, 'dd-MM-yy | HH:mm')}"></span>
+					<!-- modified only shown, if modified at least once -->
+					<i th:unless="${comment.lastModified == comment.createTime}"
+						th:text="' (modified ' + ${#dates.format(comment.lastModified, 'dd-MM-yy | HH:mm')} + ')'"></i>
+				</div>
+			</div>
+
+
+			<div class="child-comment-node"
+				th:include="fragments/comments :: commentList (comments=${comment.getChildrenComments()})"></div>
+
+		</div>
+	</th:block>
+
+</body>
+</html>

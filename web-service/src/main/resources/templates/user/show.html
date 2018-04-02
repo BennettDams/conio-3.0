@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<div th:replace="fragments/header :: header-css" />
+</head>
+<body>
+
+	<div th:replace="fragments/header :: header" />
+	
+	<header class="intro-header"
+		style="background-image: url('media/img/B.jpg')">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+					<div class="site-heading">
+						<h1>Clean Blog</h1>
+						<hr class="small" />
+						<span class="subheading">A Clean Blog Theme by Start
+							Bootstrap</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<div class="container">
+
+		<!-- profile picture & information -->
+		<div class="row">
+			<!-- profile picture -->
+			<div class="col-3">
+				<img class="img-thumbnail rounded" th:src="@{/media/img/B.jpg}" />
+			</div>
+			<!-- profile information -->
+			<div class="col-9">
+				<div class="row">
+
+					<div class="col-12">
+						<div class="col-9">
+							<h1 th:text="${user.username}">Username placeholder</h1>
+						</div>
+						<div class="col-3">
+							<h2 th:text="${#dates.format(user.createTime, 'dd-MMM-yyyy')}">createTime placeholder</h2>
+						</div>
+					</div>
+
+					<div class="col-12">
+						<h2 class="display-2">"Catchphrase"</h2>
+					</div>
+
+					<div class="col-12" id="user-profile-statistics">
+
+						<h2>Statistics</h2>
+
+						<div class="col-12">
+							<div class="col-4">
+								<p>erstelle posts</p>
+							</div>
+							<div class="col-4">
+								<p>Favoriten</p>
+							</div>
+							<div class="col-4">
+								<p>Playlists</p>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		<div class="row"></div>
+
+	</div>
+	<!-- /.container -->
+
+	<div th:replace="fragments/footer :: footer" />
+
+</body>
+</html>
