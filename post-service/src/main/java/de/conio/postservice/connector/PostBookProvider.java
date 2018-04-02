@@ -12,15 +12,15 @@ import de.conio.postservice.component.behaviour.service.PostBookService;
 import de.conio.postservice.component.behaviour.service.PostCategoryService;
 
 @Controller
-@RequestMapping("post-book")
+@RequestMapping("book")
 public class PostBookProvider extends RESTProvider<Book> {
 
 	@Autowired
 	private PostBookService bookService;
-	
+
 	@Autowired
 	private PostCategoryService postCategoryService;
-	
+
 	@Override
 	public void save(@ModelAttribute Book object, @ModelAttribute(name = "categoryId") String categoryId) {
 		object.setCategory(postCategoryService.read(Long.parseLong(categoryId)));

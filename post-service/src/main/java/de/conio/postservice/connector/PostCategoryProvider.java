@@ -11,7 +11,7 @@ import de.conio.core.structure.PostCategory;
 import de.conio.postservice.component.behaviour.service.PostCategoryService;;
 
 @Controller
-@RequestMapping("post-category")
+@RequestMapping("category")
 public class PostCategoryProvider extends RESTProvider<PostCategory> {
 
 	@Autowired
@@ -30,7 +30,7 @@ public class PostCategoryProvider extends RESTProvider<PostCategory> {
 	@Override
 	public void delete(@PathVariable Long id) {
 		postCategoryService.delete(id);
-		
+
 	}
 
 	@Override
@@ -43,5 +43,4 @@ public class PostCategoryProvider extends RESTProvider<PostCategory> {
 		return postCategoryService.readAll();
 	}
 
-	
 }

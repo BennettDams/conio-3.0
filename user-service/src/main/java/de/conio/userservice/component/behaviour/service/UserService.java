@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import de.conio.core.structure.User;
@@ -14,23 +15,23 @@ import de.conio.userservice.component.structure.UserEntity;
 @Service
 public class UserService extends CrudService<UserEntity, User> {
 	
+	private final PasswordEncoder passwordEncoder;
 	private final UserRepository userRepository;
 
 	@Autowired
-	public UserService(UserRepository userRepository) {
+	public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder) {
 		this.userRepository = userRepository;
-		//this.passwordEncoder = passwordEncoder;
+		this.passwordEncoder = passwordEncoder;
+	}
+	
+	public String encodePassword(String value) {
+		return passwordEncoder.encode(value);
 	}
 
 
 	public User findOneByUsername(String username) {
 		return UserMapper.convert2User(getRepository().findOneByUsername(username));
 	}
-	
-	/*public String encodePassword(String value) {
-		return passwordEncoder.encode(value);
-	}*/
-
 
 	@Override
 	protected UserRepository getRepository() {

@@ -12,7 +12,7 @@ import de.conio.postservice.component.behaviour.service.PostCategoryService;
 import de.conio.postservice.component.behaviour.service.PostMovieService;
 
 @Controller
-@RequestMapping("post-movie")
+@RequestMapping("movie")
 public class PostMovieProvider extends RESTProvider<Movie> {
 
 	@Autowired

@@ -17,7 +17,7 @@ public abstract class RESTProvider<T extends Base> {
 
 	@PutMapping("/{id}")
 	public abstract void update(@PathVariable("id") Long id, @ModelAttribute T object);
-	
+
 	@PostMapping("/{id}")
 	public abstract void delete(@PathVariable("id") Long id);
 

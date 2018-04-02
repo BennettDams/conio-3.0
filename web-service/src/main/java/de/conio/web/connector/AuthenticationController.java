@@ -1,4 +1,4 @@
-package de.conio.web.controller;
+package de.conio.web.connector;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

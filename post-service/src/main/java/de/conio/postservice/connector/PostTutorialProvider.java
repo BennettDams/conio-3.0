@@ -14,7 +14,7 @@ import de.conio.postservice.component.behaviour.service.PostTutorialService;
 import de.conio.postservice.component.structure.TutorialEntity;
 
 @Controller
-@RequestMapping("post-tutorial")
+@RequestMapping("tutorial")
 public class PostTutorialProvider extends RESTProvider<Tutorial> {
 	 
 	@Autowired
