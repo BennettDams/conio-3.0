@@ -48,6 +48,7 @@ public class PostMapper {
 			}
 		}
 
+		post.setId(entity.getId());
 		post.setBody(entity.getBody());
 		post.setTitle(entity.getTitle());
 		post.setCategory(PostCategoryMapper.convert2PostCategory(entity.getCategory()));
@@ -109,7 +110,7 @@ public class PostMapper {
 				e.printStackTrace();
 			}
 		}
-
+		
 		postEntity.setBody(post.getBody());
 		postEntity.setTitle(post.getTitle());
 		postEntity.setCategory(PostCategoryMapper.convert2PostCategoryEntity(post.getCategory()));

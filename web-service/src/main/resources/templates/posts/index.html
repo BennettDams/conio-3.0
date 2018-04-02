@@ -18,6 +18,12 @@
 					<div class="page-heading">
 						<h1>All Posts</h1>
 						<span class="subheading">Clean clever clean clever</span> <br />
+						<a type="submit" class="btn btn-alert" th:href="@{/posts/tutorial}"
+							th:text="|Tutorial|"></a> <a type="submit"
+							class="btn btn-alert" th:href="@{/posts/book}"
+							th:text="|Book|"></a> <a type="submit"
+							class="btn btn-alert" th:href="@{/posts/movie}"
+							th:text="|Movie|"></a>
 					</div>
 				</div>
 			</div>
@@ -29,7 +35,8 @@
 		<div class="row">
 			<div class="col-lg-8 col-md-10 mx-auto">
 				<div th:each="post : ${posts}" class="post-preview">
-					<a th:href="@{${#strings.toLowerCase('/posts/' + post.class.simpleName + '/' + post.id)}}">
+					<a
+						th:href="@{${#strings.toLowerCase('/posts/' + post.class.simpleName + '/' + post.id)}}">
 						<h2 class="post-title" th:text="${post.title}"></h2>
 						<h3 th:if="${#strings.length(post.body) &lt; 100}"
 							class="post-subtitle" th:text="${post.body}"></h3>
@@ -38,7 +45,10 @@
 							th:text="${#strings.substring(post.body,0,100) + ' ...'}"></h3>
 					</a>
 					<p class="post-meta">
-						Type: <a th:href="@{${#strings.toLowerCase('/posts/' + post.class.simpleName)}}" th:text="${post.class.simpleName}"></a> Categories: <a href="#" th:text="${post.category.name}"></a>
+						Type: <a
+							th:href="@{${#strings.toLowerCase('/posts/' + post.class.simpleName)}}"
+							th:text="${post.class.simpleName}"></a> Categories: <a href="#"
+							th:text="${post.category.name}"></a>
 					</p>
 				</div>
 			</div>
