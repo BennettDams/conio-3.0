@@ -1,12 +1,12 @@
 zuul:
   ignoredServices: '*'
   routes:
+    web-service:
+      path: /**
+      serviceId: web-service
     post-service:
       path: /posts/**
       serviceId: post-service
     user-service:
       path: /users/**
       serviceId: user-service
-    web-service:
-      path: /**
-      serviceId: web-service
