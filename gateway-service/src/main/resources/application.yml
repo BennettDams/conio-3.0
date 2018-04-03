@@ -4,9 +4,12 @@ zuul:
     web-service:
       path: /**
       serviceId: web-service
+      url: http://localhost:9090/
     post-service:
       path: /posts/**
       serviceId: post-service
+      url: http://localhost:9091/
     user-service:
       path: /users/**
       serviceId: user-service
+      url: http://localhost:9092/
