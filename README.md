@@ -1,5 +1,6 @@
-# conio-3.0
-CONIO 3.0
+# CONIO 3.0
+### Java application with microservices
+### developed with Spring Boot, Eureka, MySQL, Hibernate, Zuul & Thymeleaf 
 
 ## Add Docker setting
 Path e. g.   C:\Coding\Tools\Maven\apache-maven-3.5.3\conf\settings.xml
