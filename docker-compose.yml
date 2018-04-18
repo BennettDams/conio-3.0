@@ -1,0 +1,21 @@
+version: '3'
+services:
+  discovery-server:
+    container_name: discovery-server
+    build: discovery-server
+    ports:
+    - 8761:8761
+    hostname: discovery-server
+    environment:
+    - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://discovery-server:8761/eureka
+    
+  gateway-service:
+    container_name: gateway-service
+    build: gateway-service
+    depends_on:
+    - discovery-server
+    ports:
+    - 8080:8080
+    hostname: gateway-service
+    environment:
+    - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://discovery-server:8761/eureka

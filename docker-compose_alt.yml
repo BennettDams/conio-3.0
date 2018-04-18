@@ -1,0 +1,12 @@
+version: '3'
+services:
+  discovery-server:
+    build: discovery-server/.
+  gateway-service:
+    build: gateway-service/.
+  post-service:
+    build: post-service/.
+  user-service:
+    build: user-service/.
+  web-service:
+    build: web-service/.
