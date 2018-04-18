@@ -19,3 +19,36 @@ services:
     hostname: gateway-service
     environment:
     - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://discovery-server:8761/eureka
+    
+  user-service:
+    container_name: user-service
+    build: user-service
+    depends_on:
+    - gateway-service
+    ports:
+    - 9092:9092
+    hostname: user-service
+    environment:
+    - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://discovery-server:8761/eureka
+    
+  post-service:
+    container_name: post-service
+    build: post-service
+    depends_on:
+    - user-service
+    ports:
+    - 9091:9091
+    hostname: post-service
+    environment:
+    - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://discovery-server:8761/eureka
+    
+  web-service:
+    container_name: web-service
+    build: web-service
+    depends_on:
+    - post-service
+    ports:
+    - 9090:9090
+    hostname: web-service
+    environment:
+    - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://discovery-server:8761/eureka
